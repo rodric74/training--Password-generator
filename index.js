@@ -26,8 +26,9 @@ const generatePassword = () => {
   }
   passwordOutput.value = password;
   passwordOutput.select();
+
+  passwordOutput.select();
   navigator.clipboard.writeText(passwordOutput.value);
-  console.log(passwordOutput);
 };
 
 generateButton.addEventListener("click", generatePassword);
