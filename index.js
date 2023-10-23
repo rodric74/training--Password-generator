@@ -3,9 +3,12 @@ const dataUppercase = dataLowercase.toUpperCase();
 const dataNBumbers = "0123456789";
 const dataSymbols = '&é(§è!ç"à$`£@#!?';
 const rangeValue = document.getElementById("password-length");
+const passwordOutput = document.getElementById("password-output");
+// console.log(passwordOutput);
 
 const generatePassword = () => {
   let data = [];
+  let password = "";
 
   if (lowercase.checked) data.push(...dataLowercase);
   if (uppercase.checked) data.push(...dataUppercase);
@@ -18,8 +21,13 @@ const generatePassword = () => {
   }
 
   for (i = 0; i < rangeValue.value; i++) {
-    console.log(data[Math.floor(Math.random() * data.length)]);
+    password += data[Math.floor(Math.random() * data.length)];
+    // console.log(password);
   }
+  passwordOutput.value = password;
+  passwordOutput.select();
+  navigator.clipboard.writeText(passwordOutput.value);
+  console.log(passwordOutput);
 };
 
 generateButton.addEventListener("click", generatePassword);
