@@ -29,6 +29,11 @@ const generatePassword = () => {
 
   passwordOutput.select();
   navigator.clipboard.writeText(passwordOutput.value);
+
+  generateButton.textContent = "Copié";
+  setTimeout(() => {
+    generateButton.textContent = "Générer un nouveau mot de passe!";
+  }, 2500);
 };
 
 generateButton.addEventListener("click", generatePassword);
